@@ -2,5 +2,9 @@
 <resources>
     <style name="Theme.LoginApp" parent="android:Theme.Material.Light.NoActionBar">
         <item name="android:windowBackground">@android:color/white</item>
+        <!-- Do not let the system force-darken the app in dark mode:
+             it recolors the Compose UI and can make typed text invisible.
+             The app draws its own fixed colors instead. -->
+        <item name="android:forceDarkAllowed">false</item>
     </style>
 </resources>
