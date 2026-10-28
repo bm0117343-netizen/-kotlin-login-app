@@ -1,27 +1,9 @@
 package com.abdalrhman.loginapp.ui.theme
 
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
-
-private val DarkColorScheme = darkColorScheme(
-    primary = AppBlueNight,
-    onPrimary = AppBlueNightDark,
-    primaryContainer = AppBlueNightContainer,
-    onPrimaryContainer = Color.White,
-    secondary = AppTeal,
-    tertiary = AppTeal,
-    background = AppBackgroundNight,
-    surface = AppSurfaceNight,
-    onBackground = Color.White,
-    onSurface = Color.White,
-    onSurfaceVariant = Color(0xFFC7C7C7),
-    outline = Color(0xFF8A8A8A),
-    error = AppRedNight
-)
 
 private val LightColorScheme = lightColorScheme(
     primary = AppBlue,
@@ -41,17 +23,13 @@ private val LightColorScheme = lightColorScheme(
 
 @Composable
 fun LoginAppTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
-    // Dynamic color is intentionally OFF: the phone wallpaper must not
-    // change the app colors, otherwise buttons and links can turn
-    // almost invisible (as happened on some devices).
-    dynamicColor: Boolean = false,
+    // The app always uses the same fixed light colors, no matter
+    // whether the phone is in dark mode or light mode. This keeps
+    // buttons, links and typed text visible in both modes.
     content: @Composable () -> Unit
 ) {
-    val colorScheme = if (darkTheme) DarkColorScheme else LightColorScheme
-
     MaterialTheme(
-        colorScheme = colorScheme,
+        colorScheme = LightColorScheme,
         typography = Typography,
         content = content
     )
